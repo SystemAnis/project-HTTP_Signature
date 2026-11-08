@@ -1,0 +1,21 @@
+All'interno di questo file si trovano i comandi utilizzati per svolgere i test.
+Le variabili con valore "..." vanno impostate con i dati reali solo in locale:
+non vanno mai committate nel repository.
+
+=== Primo Test: digest.py ===
+export SIGNATURE_URL="https://example.com/api"
+export AUTHOR_NAME="Your Name"
+export ATTEMPT_CODE="YOUR_CODE_HERE"
+python digest.py
+
+=== Secondo Test: Docker container ===
+docker build -t http-signature-client .
+docker run --rm \
+  -v "$PWD/client_private_key.pem:/app/client_private_key.pem:ro" \
+  -v "$PWD/server_public_key.pem:/app/server_public_key.pem:ro" \
+  -e SIGNATURE_URL="https://example.com/api" \
+  -e ATTEMPT_CODE="YOUR_CODE_HERE" \
+  http-signature-client
+
+=== Terzo Test: Unit Test ===
+python -m unittest -v unit_Test.py

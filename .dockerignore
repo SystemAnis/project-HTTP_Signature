@@ -1,0 +1,22 @@
+# Non includere mai chiavi o certificati nell'immagine Docker
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.csr
+
+# File non necessari al runtime del client
+.git
+.gitignore
+.dockerignore
+.github
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+README.md
+comandiTest.txt
+unit_Test.py
+*.log
